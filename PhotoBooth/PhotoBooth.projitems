@@ -19,6 +19,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)CustomViews\CameraPreview.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\CameraOptions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PlatformSpecific\ICameraControls.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Constants.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\HttpService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
