@@ -1,4 +1,5 @@
 ﻿using PhotoBooth.PlatformSpecific;
+using PhotoBooth.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace PhotoBooth.Views
 {
     public partial class MainPage : ContentPage
     {
+        private MainPageViewModel _viewModel;
         private bool _coverVisible = true;
         private bool _pulseForward = true;
 
@@ -17,6 +19,7 @@ namespace PhotoBooth.Views
 
         public MainPage()
         {
+            BindingContext = _viewModel = new MainPageViewModel();
             InitializeComponent();
             _cameraControls = DependencyService.Get<ICameraControls>();
             PulseButton();
@@ -64,17 +67,15 @@ namespace PhotoBooth.Views
                 await MainButton.ScaleTo(0, 300, Easing.CubicOut);
                 MainButton.InputTransparent = false;
                 PulseButton();
-                var uploadResponse = await DisplayAlert("Upload photo?", "Do you want to upload this photo to our Instagram page?", "Yes", "No");
+                var uploadResponse = await DisplayAlert("Upload photo?", "Do you want to upload this photo to our website?", "Yes", "No");
 
                 if (uploadResponse)
                 {
-                    await DisplayAlert("Thank you", "Photo was uploaded to Instagram", "Ok");
+                    // await _viewModel.UploadImageAsync();
                 } else
                 {
                     await DisplayAlert("Ok", "Photo wasn't uploaded", "Ok");
-
                 }
-
             }
         }
 
