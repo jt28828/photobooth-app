@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Photobooth.Views.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Photobooth.CustomViews">
+
+    <RelativeLayout BackgroundColor="Red">
+        <local:CameraPreview
+            Camera="Front"
+            InputTransparent="True"
+            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                   Property=Height,
+                                                                   Factor=1}"
+            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Width,
+                                                                  Factor=1}" />
+        <RelativeLayout
+            BackgroundColor="{StaticResource JustThereWhite}"
+            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                   Property=Height,
+                                                                   Factor=1}"
+            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Width,
+                                                                  Factor=1}">
+            <Label
+                x:Name="AnimationContainer"
+                BackgroundColor="White"
+                HorizontalTextAlignment="Center"
+                InputTransparent="True"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                       Property=Height,
+                                                                       Factor=1}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                      Property=Width,
+                                                                      Factor=1}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Height,
+                                                                  Factor=0}"
+                VerticalTextAlignment="Center" />
+
+            <Label
+                x:Name="CountdownNumber"
+                FontSize="160"
+                HorizontalTextAlignment="Center"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                       Property=Height,
+                                                                       Factor=1}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                      Property=Width,
+                                                                      Factor=1}"
+                Scale="0"
+                Text="5"
+                TextColor="{StaticResource Pink}"
+                VerticalTextAlignment="Center" />
+
+            <Frame
+                x:Name="MainButton"
+                BackgroundColor="{StaticResource SuperTransparentPink}"
+                BorderColor="{StaticResource Pink}"
+                CornerRadius="100"
+                RelativeLayout.HeightConstraint="200"
+                RelativeLayout.WidthConstraint="200"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Width,
+                                                                  Factor=0.5,
+                                                                  Constant=-100}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Height,
+                                                                  Factor=0.5,
+                                                                  Constant=-100}">
+                <Label
+                    FontSize="Large"
+                    HorizontalTextAlignment="Center"
+                    Text="Tap To Start"
+                    TextColor="{StaticResource Pink}"
+                    VerticalTextAlignment="Center" />
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Clicked" />
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Image
+                x:Name="TestImage"
+                InputTransparent="True"
+                Opacity="0"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Width,
+                                                                  Factor=0.5,
+                                                                  Constant=-100}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Height,
+                                                                  Factor=0.5,
+                                                                  Constant=-100}" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</ContentPage>
